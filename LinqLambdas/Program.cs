@@ -56,6 +56,33 @@ namespace LinqLambdas
                 }
             }
 
+            SeparatingLine();
+
+            var alphabeticalGroup = people.OrderBy(p => p.FirstName).GroupBy(p => p.FirstName[0]);
+
+            foreach (IGrouping<char, Person> item in alphabeticalGroup)
+            {
+                Console.WriteLine($"{item.Key}:");
+                foreach (var p in item)
+                {
+                    Console.WriteLine($" {p.FirstName}");
+                }
+            }
+
+            SeparatingLine();
+
+            var multipleGroup = people.GroupBy(p => new { p.Gender, p.Age });
+
+            foreach (var item in multipleGroup)
+            {
+                Console.WriteLine($"{item.Key}");
+
+                foreach (Person i in item)
+                {
+                    Console.WriteLine($" {i.FirstName}");
+                }
+            }
+
             Console.ReadLine();
         }
 
