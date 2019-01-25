@@ -8,7 +8,7 @@ namespace LinqLambdas
 {
     enum Gender
     {
-        Male;
+        Male,
         Female
     }
 }
