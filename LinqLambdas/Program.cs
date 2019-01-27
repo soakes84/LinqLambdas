@@ -83,6 +83,23 @@ namespace LinqLambdas
                 }
             }
 
+            SeparatingLine();
+
+            var peopleMultipleGrouping = people.GroupBy(p => p.Age < 20
+                                                                ? "Young"
+                                                                : p.Age >= 20 && p.Age <= 30
+                                                                    ? "Adult"
+                                                                    : "More Adult");
+
+            foreach (var p in peopleMultipleGrouping)
+            {
+                Console.WriteLine($"{p.Key}");
+                foreach (var i in p)
+                {
+                    Console.WriteLine($" {i.Age}");
+                }
+            }
+
             Console.ReadLine();
         }
 
