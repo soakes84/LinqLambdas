@@ -100,6 +100,22 @@ namespace LinqLambdas
                 }
             }
 
+            SeparatingLine();
+
+            int[] arrayOfNumbers = {18, 21, 25, 45, 98234, 2, 1, 49, 94, 7, 15, 12, 11, 84, 79, 6, 5, 111};
+
+            var numbers = arrayOfNumbers.OrderBy(n => n)
+                                        .GroupBy(n => (n % 2 == 0) ? "Even" : "Odd")
+                                        .OrderBy(key => key.Count());
+
+            foreach (var num in numbers)
+            {
+                foreach (var n in num)
+                {
+                    Console.WriteLine($"  {n}");
+                }
+            }
+
             Console.ReadLine();
         }
 
