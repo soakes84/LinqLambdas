@@ -102,6 +102,22 @@ namespace LinqLambdas
 
             SeparatingLine();
 
+            var howManyOfEachGroup = people.GroupBy(p => p.Gender)
+                                           .OrderBy(p => p.Count())
+                                           .Select(p => new
+                                           {
+                                               Gender = p.Key,
+                                               NumOfPeople = p.Count()
+                                           });
+
+            foreach (var num in howManyOfEachGroup)
+            {
+                Console.WriteLine($"{num.Gender}");
+                Console.WriteLine($"{num.NumOfPeople}");
+            }
+
+            SeparatingLine();
+
             int[] arrayOfNumbers = {18, 21, 25, 45, 98234, 2, 1, 49, 94, 7, 15, 12, 11, 84, 79, 6, 5, 111};
 
             var numbers = arrayOfNumbers.OrderBy(n => n)
