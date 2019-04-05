@@ -10,6 +10,9 @@ namespace LinqLambdas
     {
         static void Main(string[] args)
         {
+
+            Console.Title = "Linq Lambdas";
+
             List<Person> people = new List<Person>()
             {
                 new Person("Spencer", "Oakes", 1, 71, 34, Gender.Male),
